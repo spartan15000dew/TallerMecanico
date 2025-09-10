@@ -6,3 +6,6 @@ def rendertemplate(request):
 
 def rendermMenu(request):
     return render(request,"aplicacionTaller/menu.html")
+
+def renderCitas(request):
+    return render(request,"aplicacionTaller/citas.html")

@@ -18,9 +18,11 @@ from django.contrib import admin
 from django.urls import path
 from aplicacionTaller.views import rendertemplate
 from aplicacionTaller.views import rendermMenu
+from aplicacionTaller.views import renderCitas
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('login/', rendertemplate),
-    path('menu/', rendermMenu)
+    path('', rendermMenu),
+    path('citas/',renderCitas)
 ]
