@@ -1,0 +1,55 @@
+/* Fondo general */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #2e3b4e; /* mismo fondo del login */
+    color: #ffffff;
+}
+
+/* Barra de navegación */
+.top-bar {
+    background-color: #1f2a38;
+    display: flex;
+    justify-content: center;
+    padding: 15px;
+    border-bottom: 2px solid #f39c12; /* borde naranja */
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+
+/* Estilo de enlaces */
+.top-bar a {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 12px 20px;
+    margin: 0 10px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 6px;
+    transition: all 0.3s;
+}
+
+/* Hover efecto */
+.top-bar a:hover {
+    background-color: #f39c12;
+    color: #1f2a38;
+}
+
+/* Contenido centrado */
+.content {
+    text-align: center;
+    margin-top: 80px;
+    background: #1f2a38;
+    padding: 40px;
+    border-radius: 10px;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px solid #f39c12;
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.4);
+}
+
+/* Título principal */
+.content h1 {
+    color: #f39c12;
+    margin-bottom: 20px;
+}
