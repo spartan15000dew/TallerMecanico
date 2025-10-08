@@ -19,10 +19,14 @@ from django.urls import path
 from aplicacionTaller.views import rendertemplate
 from aplicacionTaller.views import rendermMenu
 from aplicacionTaller.views import renderCitas
-
+from aplicacionTaller import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('login/', rendertemplate),
     path('', rendermMenu),
-    path('citas/',renderCitas)
+    path('citas/',renderCitas),
+    path('servicios/', views.servicios_base),
+    path('servicios/cliente/', views.cliente, name='cliente'),
+    path('servicios/administrador/', views.administrador, name='administrador'),
+    path('servicios/mecanico/', views.mecanico, name='mecanico'),
 ]
