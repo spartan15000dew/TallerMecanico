@@ -1,25 +1,49 @@
 <!DOCTYPE html>
 {% load static %}
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'css/stylem.css' %}">
-    <title>Document</title>
-
-
+    <title>Menú Principal - Taller Mecánico</title>
 </head>
 <body>
     <div class="top-bar">
-        <a href="http://127.0.0.1:8000/servicios/">servicios</a>
-        <a href="#">vehiculos</a>
-        <a href="http://127.0.0.1:8000/citas/">Citas</a>
-        <a href="http://127.0.0.1:8000/login/">iniciar sesion</a>
-        <a href="#">registrarse</a>
+        <a href="{% url 'servicios_base' %}">Servicios</a>
+        <a href="#">Vehículos</a>
+        <a href="{% url 'citas' %}">Citas</a>
+
+        {% if user.is_authenticated %}
+            <span class="user-info">Bienvenido, {{ user.first_name }} {{ user.last_name }}</span>
+            <a href="{% url 'logout' %}">Cerrar Sesión</a>
+        {% else %}
+            <a href="{% url 'login' %}">Iniciar Sesión</a>
+            <a href="{% url 'registro' %}">Registrarse</a>
+        {% endif %}
     </div>
 
     <div class="content">
-        <h1>Bienvenido a tallerMecanico</h1>
+        <h1>Bienvenido al Taller Mecánico</h1>
+        {% if user.is_authenticated %}
+            <div class="user-welcome">
+                <h2>¡Hola, {{ user.first_name }}!</h2>
+                <p>Bienvenido al sistema del taller mecánico</p>
+                <div class="menu-options">
+                    <a href="{% url 'servicios_base' %}" class="menu-button">Ver Servicios</a>
+                    <a href="{% url 'citas' %}" class="menu-button">Gestionar Citas</a>
+                    <a href="{% url 'cliente' %}" class="menu-button">Panel Cliente</a>
+                    <a href="{% url 'mecanico' %}" class="menu-button">Panel Mecánico</a>
+                </div>
+            </div>
+        {% else %}
+            <div class="guest-welcome">
+                <p>Para acceder a nuestros servicios, inicia sesión o regístrate.</p>
+                <div class="menu-options">
+                    <a href="{% url 'login' %}" class="menu-button">Iniciar Sesión</a>
+                    <a href="{% url 'registro' %}" class="menu-button">Registrarse</a>
+                </div>
+            </div>
+        {% endif %}
     </div>
 </body>
 </html>

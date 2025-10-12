@@ -161,3 +161,36 @@ body {
     }
 }
 
+
+/* Estilos para la selección de tipo de usuario en el login */
+.type-selection {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.type-button {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.type-button:first-child {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.type-button:last-child {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.type-button.active {
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
+}
+

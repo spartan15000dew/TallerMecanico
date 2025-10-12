@@ -1,0 +1,63 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Registro</title>
+    <link rel="stylesheet" href="{% static 'css/registro.css' %}">
+</head>
+<body>
+    <div class="register-container">
+        <h1>Registro</h1>
+        <form method="POST">
+            {% csrf_token %}
+
+            <label for="tipo_usuario">Tipo de usuario:</label>
+            <select name="tipo_usuario" id="tipo_usuario">
+                <option value="Cliente">Cliente</option>
+                <option value="Mecanico">Mecánico</option>
+            </select>
+
+            <div id="datos_cuenta">
+                <h3>Datos de la Cuenta</h3>
+                {{ user_form.as_p }}
+            </div>
+
+            <div id="datos_cliente" style="display:none;">
+                <h3>Datos del Cliente</h3>
+                {{ cliente_form.as_p }}
+            </div>
+
+            <div id="datos_mecanico" style="display:none;">
+                <h3>Datos del Mecánico</h3>
+                {{ mecanico_form.as_p }}
+            </div>
+
+            <button type="submit">Registrar</button>
+        </form>
+
+        <p><a href="{% url 'login' %}">Volver al inicio de sesión</a></p>
+    </div>
+
+    <script>
+        // Script para mostrar los campos correspondientes según el tipo seleccionado
+        const tipoSelect = document.getElementById('tipo_usuario');
+        const datosCliente = document.getElementById('datos_cliente');
+        const datosMecanico = document.getElementById('datos_mecanico');
+
+        function mostrarCampos() {
+            const tipo = tipoSelect.value;
+            if (tipo === 'Cliente') {
+                datosCliente.style.display = 'block';
+                datosMecanico.style.display = 'none';
+            } else if (tipo === 'Mecanico') {
+                datosCliente.style.display = 'none';
+                datosMecanico.style.display = 'block';
+            }
+        }
+
+        tipoSelect.addEventListener('change', mostrarCampos);
+        mostrarCampos(); // Mostrar el correcto al cargar
+    </script>
+</body>
+</html>
