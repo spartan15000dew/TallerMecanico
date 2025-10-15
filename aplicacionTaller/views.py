@@ -3,7 +3,8 @@ from aplicacionTaller.models import Cliente
 # Create your views here.
 def clientes(request):
     cliente = Cliente.objects.all()
-def rendertemplate(request):
+
+def renderLogin(request):
     return render(request,"aplicacionTaller/login.html")
 
 def rendermMenu(request):
