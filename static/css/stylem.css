@@ -12,7 +12,7 @@ body {
     background-color: #2c3e50;
     padding: 12px 20px;
     display: flex;
-    justify-content: flex-start;
+    justify-content: flex-start; 
     align-items: center;
     gap: 15px;
     border-bottom: 2px solid #f39c12;
@@ -34,7 +34,7 @@ body {
 .user-info {
     color: #f39c12;
     font-weight: bold;
-    margin-left: auto;
+    margin-left: auto; 
 }
 
 /* ======== CONTENIDO PRINCIPAL ======== */
@@ -64,12 +64,12 @@ body {
     font-size: 1.1em;
 }
 
-/* ======== BOTONES ======== */
+/* ======== BOTONES DEL MENÚ ======== */
 .menu-options {
     display: flex;
     justify-content: center;
     gap: 20px;
-    flex-wrap: wrap;
+    flex-wrap: wrap; 
     margin-top: 25px;
 }
 
@@ -90,42 +90,18 @@ body {
     box-shadow: 0 4px 8px rgba(243, 156, 18, 0.3);
 }
 
-/* ======== SECCIÓN DE INFORMACIÓN ======== */
-.info-section {
-    margin-top: 40px;
-    padding: 30px;
-    background-color: #34495e;
-    border-radius: 10px;
-    border: 1px solid #f39c12;
-}
 
-.info-section h3 {
-    color: #f39c12;
-    margin-bottom: 20px;
-}
-
-.services-list {
-    list-style: none;
-    padding: 0;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 15px;
-}
-
-.services-list li {
-    background-color: #2c3e50;
-    padding: 15px;
-    border-radius: 5px;
-    border-left: 4px solid #f39c12;
-}
-
-/* ======== RESPONSIVE ======== */
 @media (max-width: 768px) {
     .top-bar {
         flex-direction: column;
         align-items: center;
+        gap: 10px;
     }
 
+    .user-info {
+        margin-left: 0;
+    }
+    
     .menu-options {
         flex-direction: column;
         align-items: center;

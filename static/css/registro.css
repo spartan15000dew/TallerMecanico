@@ -1,3 +1,4 @@
+/* Estilos originales */
 body {
     background-color: #1e293b;
     color: #f1f5f9;
@@ -37,6 +38,7 @@ input, select {
     background-color: #1e293b;
     color: white;
     margin-bottom: 10px;
+    box-sizing: border-box; 
 }
 
 button {
@@ -60,6 +62,39 @@ h3 {
     color: #f59e0b;
     margin-top: 15px;
 }
+
+/* Contenedor principal de mensajes */
+.messages {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 15px 0; /* Espacio antes del formulario */
+}
+
+/* Estilo base para cualquier mensaje */
+.message {
+    padding: 12px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    border: 1px solid;
+    font-size: 0.9em;
+    font-weight: bold;
+    text-align: left;
+}
+
+/* Mensaje de ERROR (rojo) */
+.message.error {
+    background-color: #3f2222; /* Fondo rojo oscuro */
+    color: #fecaca;           /* Texto rojo claro */
+    border-color: #ef4444;    /* Borde rojo brillante */
+}
+
+/* Mensaje de ÉXITO (verde)*/
+.message.success {
+    background-color: #1e3a2c; /* Fondo verde oscuro */
+    color: #bbf7d0;           /* Texto verde claro */
+    border-color: #22c55e;    /* Borde verde brillante */
+}
+
 
 a {
     color: #f59e0b;

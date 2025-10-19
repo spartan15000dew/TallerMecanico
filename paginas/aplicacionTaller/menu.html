@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 {% load static %}
 <html lang="es">
 <head>
@@ -10,11 +9,11 @@
 <body>
     <div class="top-bar">
         <a href="{% url 'servicios_base' %}">Servicios</a>
-        <a href="#">Vehículos</a>
         <a href="{% url 'citas' %}">Citas</a>
-
-        {% if user.is_authenticated %}
-            <span class="user-info">Bienvenido, {{ user.first_name }} {{ user.last_name }}</span>
+        <a href="#">Vehículos</a> {% if user.is_authenticated %}
+            <span class="user-info">
+                Bienvenido, {{ user.first_name }} ({{ rol|title }})
+            </span>
             <a href="{% url 'logout' %}">Cerrar Sesión</a>
         {% else %}
             <a href="{% url 'login' %}">Iniciar Sesión</a>
@@ -24,15 +23,36 @@
 
     <div class="content">
         <h1>Bienvenido al Taller Mecánico</h1>
+        
         {% if user.is_authenticated %}
             <div class="user-welcome">
                 <h2>¡Hola, {{ user.first_name }}!</h2>
-                <p>Bienvenido al sistema del taller mecánico</p>
+                
+                {% if rol == 'cliente' %}
+                    <p>Bienvenido a tu panel de cliente. Aquí puedes gestionar tus citas y vehículos.</p>
+                {% elif rol == 'mecanico' %}
+                    <p>Bienvenido a tu panel de mecánico. Revisa tus citas asignadas.</p>
+                {% elif rol == 'administrador' %}
+                    <p>Bienvenido al panel de administración del sistema.</p>
+                {% endif %}
+
                 <div class="menu-options">
-                    <a href="{% url 'servicios_base' %}" class="menu-button">Ver Servicios</a>
-                    <a href="{% url 'citas' %}" class="menu-button">Gestionar Citas</a>
-                    <a href="{% url 'cliente' %}" class="menu-button">Panel Cliente</a>
-                    <a href="{% url 'mecanico' %}" class="menu-button">Panel Mecánico</a>
+                    
+                    {% if rol == 'cliente' %}
+                        <a href="{% url 'servicios_base' %}" class="menu-button">Ver Servicios</a>
+                        <a href="{% url 'citas' %}" class="menu-button">Mis Citas</a>
+                        <a href="{% url 'cliente' %}" class="menu-button">Mi Panel de Cliente</a>
+                    
+                    {% elif rol == 'mecanico' %}
+                        <a href="{% url 'citas' %}" class="menu-button">Citas Asignadas</a>
+                        <a href="{% url 'mecanico' %}" class="menu-button">Mi Panel de Mecánico</a>
+                    
+                    {% elif rol == 'administrador' %}
+                        <a href="{% url 'servicios_base' %}" class="menu-button">Gestionar Servicios</a>
+                        <a href="{% url 'citas' %}" class="menu-button">Gestionar Citas</a>
+                        <a href="{% url 'administrador' %}" class="menu-button">Panel de Administrador</a>
+                        <a href="{% url 'admin:index' %}" class="menu-button">Admin de Django</a>
+                    {% endif %}
                 </div>
             </div>
         {% else %}

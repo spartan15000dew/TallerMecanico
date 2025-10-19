@@ -14,9 +14,9 @@ class FormularioUsuario(forms.ModelForm):
         fields = ['username', 'first_name', 'last_name', 'email']
         labels = {
             'username': 'Nombre de usuario',
-            'first_name': 'Nombre',
-            'last_name': 'Apellido',
-            'email': 'Correo electrónico'
+            'first_name': 'Nombre',      
+            'last_name': 'Apellido',    
+            'email': 'Correo electrónico' 
         }
 
     def clean(self):
@@ -33,12 +33,9 @@ class FormularioCliente(forms.ModelForm):
 
     class Meta:
         model = Cliente
-        fields = ['nombre', 'apellido', 'telefono', 'correo', 'direccion']
+        fields = ['telefono', 'direccion'] 
         labels = {
-            'nombre': 'Nombre',
-            'apellido': 'Apellido',
             'telefono': 'Teléfono',
-            'correo': 'Correo Electrónico',
             'direccion': 'Dirección'
         }
 
@@ -49,10 +46,8 @@ class FormularioMecanico(forms.ModelForm):
 
     class Meta:
         model = Mecanico
-        fields = ['nombre', 'especialidad', 'telefono']
+        fields = ['especialidad', 'telefono']
         labels = {
-            'nombre': 'Nombre',
             'especialidad': 'Especialidad',
             'telefono': 'Teléfono'
         }
-
