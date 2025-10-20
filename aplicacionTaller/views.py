@@ -1,11 +1,7 @@
-# aplicacionTaller/views.py
-
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate, logout
 from django.contrib import messages
 from .forms import FormularioUsuario, FormularioCliente, FormularioMecanico
-
-print('--- ¡views.py HA SIDO CARGADO CORRECTAMENTE POR EL SERVIDOR! ---')
 
 #VISTA DE REGISTRO
 def registro_view(request):
@@ -16,15 +12,12 @@ def registro_view(request):
     mecanico_form = FormularioMecanico(prefix="mecanico")
 
     if request.method == 'POST':
-        print("\n--- [DEBUG] RECIBIDO POST EN REGISTRO ---") 
         
         tipo_usuario_seleccionado = request.POST.get('tipo_usuario')
         user_form = FormularioUsuario(request.POST)
         
-        print(f"--- [DEBUG] TIPO DE USUARIO SELECCIONADO: {tipo_usuario_seleccionado} ---") 
 
         if tipo_usuario_seleccionado == 'Cliente':
-            print("--- [DEBUG] VALIDANDO COMO CLIENTE ---") 
             
             cliente_form = FormularioCliente(request.POST, prefix="cliente")
             mecanico_form = FormularioMecanico(prefix="mecanico") 

@@ -67,3 +67,27 @@ a {
     color: #f59e0b;
     text-decoration: none;
 }
+
+.messages {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 15px 0; 
+}
+
+/* Estilo base para cualquier mensaje */
+.message {
+    padding: 12px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    border: 1px solid;
+    font-size: 0.9em;
+    font-weight: bold;
+    text-align: center; 
+}
+
+/* Mensaje de ERROR (rojo) */
+.message.error {
+    background-color: #3f2222; 
+    color: #fecaca;           
+    border-color: #ef4444;    
+}

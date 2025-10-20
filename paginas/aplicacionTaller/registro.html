@@ -1,15 +1,10 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <title>Registro</title>
-    
-    <style>
-        .messages { list-style: none; padding: 0; margin: 0 0 15px 0; }
-        .message { padding: 12px; margin-bottom: 10px; border-radius: 6px; border: 1px solid; font-size: 0.9em; font-weight: bold; text-align: left; }
-        .message.error { background-color: #3f2222; color: #fecaca; border-color: #ef4444; }
-        .message.success { background-color: #1e3a2c; color: #bbf7d0; border-color: #22c55e; }
-    </style>
+    <link rel="stylesheet" href="{% static 'css/registro.css' %}">
 </head>
 <body>
     <div class="register-container">
@@ -57,22 +52,6 @@
         <p><a href="{% url 'login' %}">Volver al inicio de sesión</a></p>
     </div>
 
-    <script>
-        const tipoSelect = document.getElementById('tipo_usuario');
-        const datosCliente = document.getElementById('datos_cliente');
-        const datosMecanico = document.getElementById('datos_mecanico'); 
-
-        function mostrarCampos() {
-            const tipo = tipoSelect.value;
-            if (tipo === 'Cliente') {
-                datosCliente.style.display = 'block';
-                datosMecanico.style.display = 'none';
-            } else if (tipo === 'Mecanico') {
-                datosCliente.style.display = 'none';
-                datosMecanico.style.display = 'block'; 
-            }
-        }
-        tipoSelect.addEventListener('change', mostrarCampos);
-    </script>
+<script src="{% static 'js/registro.js' %}"></script>
 </body>
 </html>
